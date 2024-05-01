@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PingBlocker:jar">
+    <output-path>$USER_HOME$/Documents/Paper/plugins</output-path>
+    <root id="archive" name="PingBlocker.jar">
+      <element id="module-output" name="PingBlocker" />
+    </root>
+  </artifact>
+</component>

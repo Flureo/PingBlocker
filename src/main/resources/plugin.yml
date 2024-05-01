@@ -1,0 +1,4 @@
+name: PingBlocker
+version: '${project.version}'
+main: me.mcflurry.pingblocker.PingBlocker
+api-version: '1.18'
