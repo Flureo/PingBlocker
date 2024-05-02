@@ -1,6 +1,6 @@
 # PingBlocker
 
-PingBlocker is a open-source Minecraft plugin that hides servers from server scanners!
+PingBlocker is an open-source Minecraft plugin that hides servers from server scanners!
 Server scanners work by first scanning every ip with 25565 open.
 Then they scan all of those ips to see if it's a Minecraft server. 
 To do this they send a ping request packet to the server that sends them back a json file format status of the server.
@@ -56,9 +56,7 @@ cloak-player-max: 20
 ### Requirements
 
 Java Version 17
-
 Paper 1.20.4 and above
-
 Internet (Sorry Joe you don't have download speed)
 
 # Build
