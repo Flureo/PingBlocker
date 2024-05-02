@@ -55,13 +55,13 @@ cloak-player-max: 20
 
 ## Installation
 
-### Requirements
+- ### Requirements
 
 - Java Version 17
 - Paper 1.20.4 and above
 - Internet (Sorry Joe you don't have download speed)
 
-### Download
+- ### Download
 
 After you [Download Latest Release](https://github.com/McFlurrYT/PingBlocker/releases/) drag and drop the plugin into your plugins folder.
 
