@@ -59,7 +59,7 @@ cloak-player-max: 20
 - Ping Masking!
 - Custom Ping Response!
 - Allows Pinging After Player Leaves!
-- Allows Whitelist Addresses!
+- Whitelisting Addresses!
 - Lots of Features!
 
 ## Installation
