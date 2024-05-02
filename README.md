@@ -1,6 +1,6 @@
 # PingBlocker
 
-    PingBlocker is a Minecraft plugin that hides servers from server scanners.
+PingBlocker is a Minecraft plugin that hides servers from server scanners.
 Server scanners work by first scanning every ip with 25565 open. Then they scan 
 all of those ips to see if its a Minecraft. To do this they send a ping request
 packet to the server that sends them back the a json file format status of the 
