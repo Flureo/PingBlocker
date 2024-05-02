@@ -9,7 +9,7 @@ This is how you get the status of the server on the server list in Minecraft.
 But if the server doesn't respond to the ping then the server scanner wouldn't know if it's a Minecraft server or not. 
 This is how PingBlocker protects your server from server scanners.
 
-# Config
+## Config
 
 ```yml
 # Don't change this unless you update this plugin.
@@ -51,9 +51,9 @@ cloak-player-count: 0
 cloak-player-max: 20
 ```
 
-# Features
+## Features
 
-# Installation
+## Installation
 
 ### Requirements
 
@@ -61,4 +61,4 @@ cloak-player-max: 20
 - Paper 1.20.4 and above
 - Internet (Sorry Joe you don't have download speed)
 
-# Build
+## Build
