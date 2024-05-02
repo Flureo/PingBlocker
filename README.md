@@ -51,12 +51,14 @@ cloak-player-count: 0
 cloak-player-max: 20
 ```
 
+# Features
+
 # Installation
 
 ### Requirements
 
-Java Version 17
-Paper 1.20.4 and above
-Internet (Sorry Joe you don't have download speed)
+- Java Version 17
+- Paper 1.20.4 and above
+- Internet (Sorry Joe you don't have download speed)
 
 # Build
