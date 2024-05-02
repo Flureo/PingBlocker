@@ -62,6 +62,7 @@ cloak-player-max: 20
 - Internet (Sorry Joe you don't have download speed)
 
 ### Download
-[Download Latest Version](https://github.com/McFlurrYT/PingBlocker/releases/)
+
+After you [Download Latest Release](https://github.com/McFlurrYT/PingBlocker/releases/) drag and drop the plugin into your plugins folder.
 
 ## Build
