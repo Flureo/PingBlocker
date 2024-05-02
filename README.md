@@ -53,6 +53,15 @@ cloak-player-max: 20
 
 ## Features
 
+- Clean Name!
+- Active Development!
+- Ping Blocking!
+- Ping Masking!
+- Custom Ping Response!
+- Allows Pinging After Player Leaves!
+- Allows Whitelist Addresses!
+- Lots of Features!
+
 ## Installation
 
 ### Requirements
