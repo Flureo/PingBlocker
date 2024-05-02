@@ -61,4 +61,7 @@ cloak-player-max: 20
 - Paper 1.20.4 and above
 - Internet (Sorry Joe you don't have download speed)
 
+### Download
+[Download Latest Version](https://github.com/McFlurrYT/PingBlocker/releases/)
+
 ## Build
