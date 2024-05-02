@@ -60,6 +60,7 @@ cloak-player-max: 20
 - Custom Ping Response!
 - Allows Pinging After Player Leaves!
 - Whitelisting Addresses!
+- Easy Debuging!
 - Lots of Features!
 
 ## Installation
@@ -75,3 +76,6 @@ cloak-player-max: 20
 - After you [Download Latest Release](https://github.com/McFlurrYT/PingBlocker/releases/) drag and drop the plugin into your plugins folder.
 
 ## Build
+
+Just [Download](https://github.com/McFlurrYT/PingBlocker/releases/) the source and use [IntelliJ](https://www.jetbrains.com/idea/?var=1) to open and build the project.
+If you don't know how to use IntelliJ or code in Java you probable don't need to be messing with this project.
