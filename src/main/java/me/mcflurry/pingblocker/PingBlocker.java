@@ -7,27 +7,17 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
-import org.bukkit.util.CachedServerIcon;
 
 import java.util.*;
 
-public final class PingBlocker extends JavaPlugin implements Listener {
-    private final List<String> list_of_addresses = new ArrayList<String>();
-
-    private void cached_reset() {
-        list_of_addresses.addAll(getConfig().getStringList("allowed-addresses"));
-
-        if(getConfig().getBoolean("respond-after-player-quits") && getConfig().getInt("cached-address-timer") <= 0) {
-            BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
-            scheduler.scheduleSyncDelayedTask(this, new Runnable() {
-                @Override
-                public void run() {
-                    list_of_addresses.clear();
-                    cached_reset();
-                }
-            }, 60*getConfig().getInt("cached-address-timer")*20L);
-        }
-    }
+public class PingBlocker extends JavaPlugin implements Listener {
+    public List<String> ListOfAddresses = new ArrayList<String>();
+    public String Version = getConfig().getString("version");
+    public boolean Debug = getConfig().getBoolean("debug");
+    public String Mode = getConfig().getString("mode");
+    public boolean WhitelistAfterPlayerQuits = getConfig().getBoolean("whitelist-after-player-quits");
+    public List<String> WhitelistedAddresses = getConfig().getStringList("whitelisted-addresses");
+    public int ResetAddressesTimer = getConfig().getInt("reset-addresses-timer");
 
     @Override
     public void onEnable() {
@@ -35,41 +25,26 @@ public final class PingBlocker extends JavaPlugin implements Listener {
 
         saveDefaultConfig();
 
-        if(!Objects.equals(getConfig().getString("version"), "1.0")) {
+        if(Objects.equals(Mode, "OFF")) Bukkit.getPluginManager().disablePlugin(this);
+
+        if(!Objects.equals(Version, "1.1")) {
             getLogger().warning("Error: Invalid Version.");
             Bukkit.getPluginManager().disablePlugin(this);
         }
-
-        if(!Objects.equals(getConfig().getString("mode"), "OFF")) cached_reset();
-        if(!Objects.equals(getConfig().getString("mode"), "OFF") && !Objects.equals(getConfig().getString("mode"), "BLOCK") && !Objects.equals(getConfig().getString("mode"), "CLOAK")) {
+        else if(!Objects.equals(Mode, "BLOCK") && !Objects.equals(Mode, "CLOAK")) {
             getLogger().warning("Error: Invalid Mode.");
             Bukkit.getPluginManager().disablePlugin(this);
         }
+        new ResetAddresses(this);
     }
 
     @EventHandler
-    public void OnPlayerQuitEvent(PlayerQuitEvent event) {
-        if(getConfig().getBoolean("respond-after-player-quits") && !list_of_addresses.contains(Objects.requireNonNull(event.getPlayer().getAddress()).toString().substring(0, event.getPlayer().getAddress().toString().indexOf(":")).replace("/", "")))
-            list_of_addresses.add(event.getPlayer().getAddress().toString().substring(0, event.getPlayer().getAddress().toString().indexOf(":")).replace("/", ""));
+    public void onPlayerQuitEvent(PlayerQuitEvent event) {
+        new AddAddress(Objects.requireNonNull(event.getPlayer().getAddress()).toString().substring(0, event.getPlayer().getAddress().toString().indexOf(":")).replace("/", ""), this);
     }
 
     @EventHandler
     public void onPaperServerListPingEvent(PaperServerListPingEvent event) {
-        if(getConfig().getBoolean("debug")) Bukkit.getLogger().info(event.getAddress().toString().replace("/", "") + " is attempting to ping the server.");
-
-        if(!list_of_addresses.contains(event.getAddress().toString().replace("/", "")) && Objects.equals(getConfig().getString("mode"), "BLOCK") && !event.isCancelled()) {
-            event.setCancelled(true);
-        }
-        else if(!list_of_addresses.contains(event.getAddress().toString().replace("/", "")) && Objects.equals(getConfig().getString("mode"), "CLOAK") && !event.isCancelled()) {
-            event.setNumPlayers(getConfig().getInt("cloak-player-count"));
-            event.setMaxPlayers(getConfig().getInt("cloak-player-max"));
-
-            event.setVersion(Objects.requireNonNull(getConfig().getString("cloak-version")));
-            event.setProtocolVersion(getConfig().getInt("cloak-protocol-version"));
-
-            event.setMotd(Objects.requireNonNull(getConfig().getString("cloak-motd")));
-
-            event.setServerIcon(null);
-        }
+        new PingResponse(event, this);
     }
 }

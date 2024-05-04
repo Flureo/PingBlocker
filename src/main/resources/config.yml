@@ -1,5 +1,5 @@
 # Don't change this unless you update this plugin.
-version: '1.0'
+version: '1.1'
 
 # If true, the plugin will log debug info.
 debug: false
@@ -12,26 +12,27 @@ mode: 'BLOCK'
 
 # If true, whenever a player leaves the server the player's ip is added to a list.
 # And all ips added to the list will be able to ping the server.
-respond-after-player-quits: true
+whitelist-after-player-quits: true
 
 # Each 1 whole number is a whole minute.
 # If 0, the timer will be disabled.
 # After this timer is over it will clear all ips added to the respond-after-player-join list.
-cached-address-timer: 30
+reset-addresses-timer: 30
 
 # All ips added to allowed-addresses below will always be able to ping the server.
-allowed-addresses:
+whitelisted-addresses:
   - '127.0.0.1'
 
-# When 'CLOAK' mode is selected this will be the version displayed in the fake response ping.
-cloak-version: 'Null'
+cloak:
+  # When 'CLOAK' mode is selected this will be the version displayed in the fake response ping.
+  version: 'Null'
 
-# When 'CLOAK' mode is selected this will be the protocol version displayed in the fake response ping.
-cloak-protocol-version: 0
+  # When 'CLOAK' mode is selected this will be the protocol version displayed in the fake response ping.
+  protocol-version: 0
 
-# When 'CLOAK' mode is selected this will be the motd displayed in the fake response ping.
-cloak-motd: 'A Minecraft Server'
+  # When 'CLOAK' mode is selected this will be the motd displayed in the fake response ping.
+  motd: 'A Minecraft Server'
 
-# When 'CLOAK' mode is selected this will be the player count displayed in the fake response ping.
-cloak-player-count: 0
-cloak-player-max: 20
+  # When 'CLOAK' mode is selected this will be the player count displayed in the fake response ping.
+  player-count: 0
+  player-max: 20
